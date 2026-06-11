@@ -22,6 +22,28 @@ def cargar_datos(archivo):
 st.set_page_config(page_title="Simulador BESS - Másinteligencia", layout="wide")
 st.title("🔋 Simulador de Gestión de Baterías ")
 st.markdown("Herramienta modular interactiva para simulación horaria de balances energéticos.")
+st.markdown("""
+<style>
+/* 1. Reducir ligeramente el tamaño del valor principal y forzar salto de línea */
+[data-testid="stMetricValue"] > div {
+    font-size: 1.6rem !important; /* El tamaño por defecto es gigante, esto lo hace más adaptable */
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+}
+
+/* 2. Forzar que las etiquetas inferiores (el delta) también salten de línea si es necesario */
+[data-testid="stMetricDelta"] > div {
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+}
+
+/* 3. Asegurar que el título de la métrica no se corte */
+[data-testid="stMetricLabel"] > div {
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+}
+</style>
+""", unsafe_allow_html=True)
 
 # --- BARRA LATERAL: ENTRADA MANUAL DE LAS VARIABLES ---
 st.sidebar.header("⚙️ Variables de Simulación")
