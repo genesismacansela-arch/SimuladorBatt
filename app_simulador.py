@@ -22,29 +22,31 @@ def cargar_datos(archivo):
 st.set_page_config(page_title="Simulador BESS - Másinteligencia", layout="wide")
 st.title("🔋 Simulador de Gestión de Baterías ")
 st.markdown("Herramienta modular interactiva para simulación horaria de balances energéticos.")
+# --- CSS PERSONALIZADO PARA MÉTRICAS RESPONSIVAS ---
 st.markdown("""
 <style>
-/* 1. Reducir ligeramente el tamaño del valor principal y forzar salto de línea */
+/* 1. Fuente fluida para el valor principal: Mantiene el tamaño original (2.25rem), pero se encoge proporcionalmente hasta 1.2rem si falta espacio */
 [data-testid="stMetricValue"] > div {
-    font-size: 1.6rem !important; /* El tamaño por defecto es gigante, esto lo hace más adaptable */
+    font-size: clamp(1.2rem, 2.5vw, 2.25rem) !important; 
     white-space: normal !important;
     overflow-wrap: break-word !important;
 }
 
-/* 2. Forzar que las etiquetas inferiores (el delta) también salten de línea si es necesario */
+/* 2. Etiquetas (Delta) fluidas: Se adaptan suavemente sin perder legibilidad */
 [data-testid="stMetricDelta"] > div {
+    font-size: clamp(0.7rem, 1.2vw, 0.9rem) !important;
     white-space: normal !important;
     overflow-wrap: break-word !important;
 }
 
-/* 3. Asegurar que el título de la métrica no se corte */
+/* 3. Títulos de las métricas fluidos */
 [data-testid="stMetricLabel"] > div {
+    font-size: clamp(0.8rem, 1.5vw, 1rem) !important;
     white-space: normal !important;
     overflow-wrap: break-word !important;
 }
 </style>
 """, unsafe_allow_html=True)
-
 # --- BARRA LATERAL: ENTRADA MANUAL DE LAS VARIABLES ---
 st.sidebar.header("⚙️ Variables de Simulación")
 
