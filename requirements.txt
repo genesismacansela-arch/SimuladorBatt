@@ -1,6 +1,0 @@
-streamlit
-pandas
-numpy
-plotly
-openpyxl
-kaleido==0.1.0.post1
