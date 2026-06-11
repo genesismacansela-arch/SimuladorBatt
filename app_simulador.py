@@ -23,30 +23,42 @@ st.set_page_config(page_title="Simulador BESS - Másinteligencia", layout="wide"
 st.title("🔋 Simulador de Gestión de Baterías ")
 st.markdown("Herramienta modular interactiva para simulación horaria de balances energéticos.")
 # --- CSS PERSONALIZADO PARA MÉTRICAS RESPONSIVAS ---
+# --- CSS PERSONALIZADO (VERSIÓN DEFINITIVA RESPONSIVA) ---
 st.markdown("""
 <style>
-/* 1. Fuente fluida para el valor principal: Mantiene el tamaño original (2.25rem), pero se encoge proporcionalmente hasta 1.2rem si falta espacio */
+/* 1. Anular el truncamiento en TODOS los sub-elementos de los valores */
+[data-testid="stMetricValue"], [data-testid="stMetricValue"] * {
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    text-overflow: clip !important;
+    overflow: visible !important;
+}
+
+/* 2. Aplicar la fuente fluida: de grande (2.25rem) baja hasta 1rem si se asfixia */
 [data-testid="stMetricValue"] > div {
-    font-size: clamp(1.2rem, 2.5vw, 2.25rem) !important; 
-    white-space: normal !important;
-    overflow-wrap: break-word !important;
+    font-size: clamp(1rem, 2.5vw, 2.25rem) !important; 
 }
 
-/* 2. Etiquetas (Delta) fluidas: Se adaptan suavemente sin perder legibilidad */
-[data-testid="stMetricDelta"] > div {
+/* 3. Mismo tratamiento para las etiquetas (Delta) */
+[data-testid="stMetricDelta"], [data-testid="stMetricDelta"] * {
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    text-overflow: clip !important;
+    overflow: visible !important;
     font-size: clamp(0.7rem, 1.2vw, 0.9rem) !important;
-    white-space: normal !important;
-    overflow-wrap: break-word !important;
 }
 
-/* 3. Títulos de las métricas fluidos */
-[data-testid="stMetricLabel"] > div {
-    font-size: clamp(0.8rem, 1.5vw, 1rem) !important;
+/* 4. Mismo tratamiento para los títulos */
+[data-testid="stMetricLabel"], [data-testid="stMetricLabel"] * {
     white-space: normal !important;
     overflow-wrap: break-word !important;
+    text-overflow: clip !important;
+    overflow: visible !important;
+    font-size: clamp(0.8rem, 1.5vw, 1rem) !important;
 }
 </style>
 """, unsafe_allow_html=True)
+
 # --- BARRA LATERAL: ENTRADA MANUAL DE LAS VARIABLES ---
 st.sidebar.header("⚙️ Variables de Simulación")
 
