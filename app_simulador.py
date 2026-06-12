@@ -6,9 +6,7 @@ import time
 import tempfile 
 import os       
 import plotly.graph_objects as go
-#from motor_bess import BESS_Simulator
-from GD_motor_bess import BESS_Simulator
-#from E4_V2_motor_bess import BESS_Simulator
+from motor_bess import BESS_Simulator
 
 # ------ FUNCIÓN PARA CACHEAR LA LECTURA DEL ARCHIVO ----------
 @st.cache_data(show_spinner="Leyendo archivo...")
