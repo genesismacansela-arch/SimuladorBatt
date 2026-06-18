@@ -61,6 +61,8 @@ perdidas_fv = st.sidebar.number_input("Perdidas FV (%)", min_value=0.0, max_valu
 pot_inversor = st.sidebar.number_input("Potencia inversor (kW)", min_value=0.0, value=2700.0, step=100.0)
 tiene_bateria = st.sidebar.checkbox("Sistema con Batería", value=False)
 # Declaracion de variables operativas para motor 
+cd_rate = 0.0
+cc_rate = 0.0
 coste_ciclo = 0.0 
 precio_min_descarga = 0.0
 precio_max_carga = 0.0
