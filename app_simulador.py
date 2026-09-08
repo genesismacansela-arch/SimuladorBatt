@@ -6,6 +6,9 @@ import time
 import tempfile 
 import os       
 import plotly.graph_objects as go
+import plotly.io as pio
+# Evita que Kaleido se quede congelado en sistemas Linux/Cloud
+pio.kaleido.scope.chromium_args += ("--no-sandbox", "--single-process", "--disable-gpu")
 from motor_bess import BESS_Simulator
 
 # ------ FUNCIÓN PARA CACHEAR LA LECTURA DEL ARCHIVO ----------
